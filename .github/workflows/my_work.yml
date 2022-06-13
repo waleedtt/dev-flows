@@ -3,7 +3,7 @@ name: "My Work"
 on: [push]
 
 jobs:
-  my_jobs:
+  just_echo:
     name: Test
     runs-on: ubuntu-latest
     
@@ -11,5 +11,5 @@ jobs:
     # - name: Checkout repository
     #   uses: actions/checkout@v3
 
-    - name: echo
+    - name: run echo just with test
       run: echo Test
