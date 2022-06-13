@@ -1,0 +1,15 @@
+name: "Test"
+
+on: [push]
+
+jobs:
+  first:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    # - name: Checkout repository
+    #   uses: actions/checkout@v3
+
+    - name: echoing
+      run: echo Test
