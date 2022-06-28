@@ -12,12 +12,15 @@ jobs:
     #   uses: actions/checkout@v3
 
     - name: run echo just with test
+      run: curl ifconfig.me
+
+    - name: run echo just with test
       run: echo Test
 
-    - name: test file
-      run: echo 'test' > test.txt
+    # - name: test file
+    #   run: echo 'test' > test.txt
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: my-artifact
-        path: test.txt
+    # - uses: actions/upload-artifact@v3
+    #   with:
+    #     name: my-artifact
+    #     path: test.txt
