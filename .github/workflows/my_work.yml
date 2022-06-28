@@ -1,9 +1,9 @@
-name: "My Work"
+name: "My Actions Job"
 
 on: [push]
 
 jobs:
-  just_echo:
+  do_random_stuff:
     name: Test
     runs-on: ubuntu-latest
     
