@@ -13,3 +13,11 @@ jobs:
 
     - name: run echo just with test
       run: echo Test
+
+    - name: test file
+      run: echo 'test' > test.txt
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: test.txt
