@@ -17,8 +17,8 @@ jobs:
     - name: curl ip of the machine
       run: curl -s ifconfig.me
 
-    # - name: test file
-    #   run: echo 'test' > test.txt
+    - name: test file
+      run: echo 'test' > test.txt
 
     - uses: actions/upload-artifact@v3
       with:
