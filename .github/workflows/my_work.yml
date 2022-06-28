@@ -20,7 +20,7 @@ jobs:
     # - name: test file
     #   run: echo 'test' > test.txt
 
-    # - uses: actions/upload-artifact@v3
-    #   with:
-    #     name: my-artifact
-    #     path: test.txt
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: test.txt
