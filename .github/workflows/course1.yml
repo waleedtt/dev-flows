@@ -1,0 +1,14 @@
+name: "My Course Job2"
+on: [fork]
+
+jobs:
+  my-course-job2:
+    name: My course first job2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print check
+        run: |
+          print("test2")
+        shell: python
+

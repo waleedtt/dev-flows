@@ -1,0 +1,49 @@
+name: "My Course Job"
+on: [fork]
+# fork push
+
+jobs:
+  my-course-job:
+    name: My course first job
+    runs-on: ubuntu-latest
+    #needs: "my-course-job-1"
+
+    steps:
+      - name: print check
+        run: |
+          print("test")
+        shell: python
+      
+      - name: test
+        uses: actions/hello-world-javascript-action@v1
+        id: greet
+        with:
+          who-to-greet: "John"
+
+      - name: output
+        run: echo "${{ steps.greet.outputs.time }}"
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: ls
+        run: ls -la
+
+      - name: printenv
+        run: printenv
+
+      - name: echo
+        run: |
+          echo $GITHUB_SHA
+          echo "${{ github.token }}"
+
+  my-course-job-1:
+    if: false
+    name: My course first job1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo check
+        run: |
+          echo ok
+        shell: bash

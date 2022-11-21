@@ -1,0 +1,12 @@
+name: Slave workflow
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    name: print hshs
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'hshs' 
+      

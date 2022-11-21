@@ -1,0 +1,171 @@
+name: "My Actions Job"
+
+on:
+  push:
+    branches:
+      #- master
+      - 'releases/**'
+
+jobs:
+
+  build:
+
+    name: Build
+    runs-on: ubuntu-latest
+    if: false
+    
+    steps:
+
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: |
+          #waleedcw/build-gh
+          #gcr.io/delta-pagoda-354106/build-gh
+          us-central1-docker.pkg.dev/delta-pagoda-354106/docker-registry/build-gh
+        tags: |
+          type=raw,value=1.1
+        # type=raw,value=latest
+        # type=ref,event=branch
+        # type=ref,event=pr
+        # type=semver,pattern={{version}}
+        # type=semver,pattern={{major}}.{{minor}}
+
+    #- uses: actions/checkout@v3
+    
+    - uses: docker/setup-qemu-action@v2
+
+    - uses: docker/setup-buildx-action@v2
+      id: buildx
+
+    #- run: echo ${{ steps.buildx.outputs.platforms }}
+    #- run: echo ${{ steps.meta.outputs.tags }}
+    #- run: echo ${{ steps.meta.outputs.labels }}
+
+
+    # - name: Build test1
+    #   uses: docker/login-action@v2
+    #   with:
+    #     registry: gcr.io
+    #     username: _json_key
+    #     password: ${{ secrets.GCR_JSON_KEY_ARTIFACT }}
+          
+    # - name: Build test2
+    #   uses: docker/build-push-action@v3
+    #   with:
+    #     tags: |
+    #       gcr.io/delta-pagoda-354106/build:1.1
+    #       gcr.io/delta-pagoda-354106/build:1.2
+    #     push: true
+    #     platforms: linux/amd64,linux/arm64
+
+
+    - uses: docker/login-action@v2
+      with:
+          # artifact registry
+          registry: us-central1-docker.pkg.dev
+          username: _json_key
+          #password: ${{ secrets.GCR_JSON_KEY }}
+          password: ${{ secrets.GCR_JSON_KEY_ARTIFACT }}
+          # gcr
+          # registry: gcr.io
+          # username: _json_key
+          # password: ${{ secrets.GCR_JSON_KEY }}
+          # docker
+          # username: ${{ secrets.DOCKERHUB_USERNAME }}
+          # password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+    - uses: docker/build-push-action@v3
+      with:
+        #context: .
+        #context: "{{defaultContext}}:test"
+        #file: ./Dockerfile
+        # build-args: |
+        #   VERSION=1.1
+        push: true
+        platforms: |
+            linux/amd64
+            linux/arm64
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+
+
+    # - name: run echo just with test
+    #   run: echo Test
+
+
+  echo_stuff:
+    name: Echo Stuff
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+    - run: echo '${{ toJSON(github) }}'
+    - run: echo '${{ runner.tool_cache }}'
+      
+
+  hello_world_job:
+    if: false
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: waleedtt/name-action@master
+        with:
+          who-to-greet: 'A Man'
+          who-to-not: 'A Women'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+  master_flow:
+    name: Master flow
+    runs-on: ubuntu-latest
+    needs: slave_flow
+    #if: false
+    steps:
+    - run: echo 'fine'
+  
+  slave_flow:
+    if: false
+    uses: ./.github/workflows/slave.yml
+
+
+  cache_check:
+    name: Cache Check
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+    - uses: ruby/setup-ruby@v1
+      with:
+          ruby-version: '3.0'
+    - run: ls -la '${{ runner.tool_cache }}/'
+
+
+  upload_artifact:
+    name: upload_artifact
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+    - run: echo 'test' > myfile.txt
+      name: create a file
+
+    - name: Upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-test.txt
+        path: myfile.txt
+
+  download_artifact:
+    needs: upload_artifact
+    name: download_artifact
+    runs-on: ubuntu-latest
+    #if: false
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: my-test.txt
+        path: ./
+    - run: ls -la
+    - run: cat myfile.txt

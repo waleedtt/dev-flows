@@ -1,0 +1,54 @@
+name: "My Cache Job"
+on: [fork]
+# fork push
+
+jobs:
+  my-cache-job:
+    name: Cache Job
+    runs-on: ubuntu-latest
+    env:
+      keyOfCache: test-key-1
+
+    steps:
+
+      - name: Cache
+        id: test-cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./cache
+            ./node_modules
+          key: ${{ env.keyOfCache }}
+          # key: ${{ runner.os }}-node-${{ hashFiles('./mywork.txt') }}
+          restore-keys: | 
+            test-key-1
+            #test-
+
+      - name: ls -la
+        run: ls -la 
+
+      - name: cat
+        run: |
+          cat ./cache/mywork.txt || true
+
+      - name: echo 
+        run: |
+          [ -d cache ] || mkdir cache 
+          echo ${{ env.keyOfCache }} > ./cache/mywork.txt
+
+      - name: ls -la 1
+        run: ls -la 
+
+      - name: cat1
+        run: cat ./cache/mywork.txt
+
+      # - name: npm install
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16
+
+      # - name: npm
+      #   run: npm install nodemon
+
+      # - name: ls -la 1
+      #   run: ls -la 

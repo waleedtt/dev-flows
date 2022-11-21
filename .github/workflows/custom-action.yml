@@ -1,0 +1,56 @@
+name: "My Custom Action Call Job"
+
+on: [push]
+# fork push
+
+jobs:
+
+  # my_aciton_job:
+  #   if: false
+  #   runs-on: ubuntu-latest
+  #   name: My Custom Action Call
+  #   steps:
+  #     - name: Hello world action step
+  #       id: hello
+  #       uses: waleedtt/name-action@master
+  #       with:
+  #         who-to-greet: 'A Man'
+  #         who-to-not: 'A Women'
+  #     # Use the output from the `hello` step
+  #     - name: Get the output time
+  #       run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+  # my_docker_action:
+  #   if: false
+  #   runs-on: ubuntu-latest
+  #   name: My Custom Docker Action Call
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Cache Action
+  #       id: id_cache
+  #       uses: waleedtt/docker-action@master
+  #       with:
+  #         path: './'
+  #         key: 'test-key'
+  #         restore-keys: |
+  #           one
+  #           two
+  #     - name: Get Cache Hit
+  #       run: echo "The time was ${{ steps.id_cache.outputs.cache-hit }}"
+
+  my_cache_job:
+    #if: false
+    runs-on: ubuntu-latest
+    name: My Cache Action Call
+    steps:
+      - name: Cache Action
+        id: id_cache
+        uses: waleedtt/cache-action@master
+        with:
+          path: './'
+          key: 'key-one'
+          restore-keys: |
+            key-two
+            key-
+      - name: Get Cache Hit
+        run: echo "The cache hit ${{ steps.id_cache.outputs.cache-hit }}"
