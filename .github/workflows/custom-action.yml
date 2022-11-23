@@ -1,6 +1,6 @@
 name: "My Custom Action Call Job"
 
-on: [fork]
+on: [push]
 # fork push
 
 jobs:

@@ -1,5 +1,5 @@
 name: "My Cache Job"
-on: [push]
+on: [fork]
 # fork push
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
         with:
           path: |
             ./cache
-            ~./npm/
+            ./node_modules
           key: ${{ env.keyOfCache }}
           # key: ${{ runner.os }}-node-${{ hashFiles('./mywork.txt') }}
           # restore-keys: | 
