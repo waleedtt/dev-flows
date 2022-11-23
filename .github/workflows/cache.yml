@@ -17,12 +17,12 @@ jobs:
         with:
           path: |
             ./cache
-            /tmp/
+            ~./npm/
           key: ${{ env.keyOfCache }}
           # key: ${{ runner.os }}-node-${{ hashFiles('./mywork.txt') }}
-          restore-keys: | 
-            test-key-1
-            #test-
+          # restore-keys: | 
+          #   test-key-1
+          #   #test-
 
       - name: ls -la
         run: ls -la 
