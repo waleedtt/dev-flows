@@ -43,14 +43,21 @@ jobs:
     runs-on: ubuntu-latest
     name: My Cache Action Call
     steps:
+
+      - name: echo 
+        run: |
+          [ -d cache ] || mkdir cache 
+          echo ${{ env.keyOfCache }} > ./cache/mywork.txt
+
+
       - name: Cache Action
         id: id_cache
         uses: waleedtt/cache-action@master
         with:
-          path: './'
+          path: './cache'
           key: 'key-one'
-          restore-keys: |
-            key-two
-            key-
+          # restore-keys: |
+          #   key-two
+          #   key-
       - name: Get Cache Hit
         run: echo "The cache hit ${{ steps.id_cache.outputs.cache-hit }}"
