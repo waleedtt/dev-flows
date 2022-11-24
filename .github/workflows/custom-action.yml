@@ -58,5 +58,9 @@ jobs:
           # restore-keys: |
           #   key-two
           #   key-
+          
+      - name: ls -la
+        run: ls -la 
+
       - name: Get Cache Hit
         run: echo "The cache hit ${{ steps.id_cache.outputs.cache-hit }}"
