@@ -49,7 +49,6 @@ jobs:
           [ -d cache ] || mkdir cache 
           echo ${{ env.keyOfCache }} > ./cache/mywork.txt
 
-
       - name: Cache Action
         id: id_cache
         uses: waleedtt/cache-action@master
