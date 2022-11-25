@@ -49,6 +49,9 @@ jobs:
           [ -d cache ] || mkdir cache 
           echo ${{ env.keyOfCache }} > ./cache/mywork.txt
 
+      - name: whoami 
+        run: whoami
+          
       - name: Cache Action
         id: id_cache
         uses: waleedtt/cache-action@master
@@ -58,7 +61,7 @@ jobs:
           # restore-keys: |
           #   key-two
           #   key-
-          
+
       - name: ls -la
         run: ls -la 
 
