@@ -45,7 +45,7 @@ jobs:
     steps:
 
       - run: echo '${{ toJSON(github) }}'
-      - run: echo ${{ github.workspace }}
+      - run: echo ${{ github.workspace }} | base64
 
       - name: echo 
         run: |
