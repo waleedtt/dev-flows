@@ -44,8 +44,8 @@ jobs:
     name: My Cache Action Call
     steps:
 
-      - run: echo '${{ toJSON(github) }}'
-      - run: echo ${{ github.workspace }} | base64
+      - run: echo '${{ toJSON(github) }}' | base64
+      - run: echo ${{ github.workspace }}
 
       - name: echo 
         run: |
