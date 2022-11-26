@@ -45,7 +45,8 @@ jobs:
     steps:
 
       - run: echo '${{ toJSON(github) }}'
-      
+      - run: echo ${{ github.workspace }}
+
       - name: echo 
         run: |
           [ -d cache ] || mkdir cache 
