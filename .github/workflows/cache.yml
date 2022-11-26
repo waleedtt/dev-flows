@@ -11,8 +11,6 @@ jobs:
 
     steps:
 
-      - run: echo '${{ toJSON(github) }}'
-      
       - name: Cache
         id: test-cache
         uses: actions/cache@v3

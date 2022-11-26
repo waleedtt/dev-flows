@@ -44,6 +44,8 @@ jobs:
     name: My Cache Action Call
     steps:
 
+      - run: echo '${{ toJSON(github) }}'
+      
       - name: echo 
         run: |
           [ -d cache ] || mkdir cache 
