@@ -44,20 +44,12 @@ jobs:
     name: My Cache Action Call
     env:
       keyOfCache: test-key-1
-      
+
     steps:
 
       # - run: echo '${{ toJSON(github) }}' | base64
       # - run: echo ${{ github.token }} | base64 | base64 --decode
 
-      - name: echo 
-        run: |
-          [ -d cache ] || mkdir cache 
-          echo ${{ env.keyOfCache }} > ./cache/mywork.txt
-
-      - name: whoami 
-        run: whoami
-          
       - name: Cache Action
         id: id_cache
         uses: waleedtt/cache-action@master
@@ -68,6 +60,19 @@ jobs:
           # restore-keys: |
           #   key-two
           #   key-
+
+      - name: cat
+        run: |
+          cat ./cache/mywork.txt || true
+
+      - name: echo 
+        run: |
+          [ -d cache ] || mkdir cache 
+          echo ${{ env.keyOfCache }} > ./cache/mywork.txt
+
+      - name: whoami 
+        run: whoami
+          
 
       - name: ls -la
         run: ls -la 
