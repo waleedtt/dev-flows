@@ -23,6 +23,7 @@ jobs:
           # restore-keys: | 
           #   test-key-1
           #   #test-
+          sa: ${{ secrets.TEST_JSON_KEY }}
 
       - name: ls -la
         run: ls -la 
