@@ -59,6 +59,7 @@ jobs:
         id: id_cache
         uses: waleedtt/cache-action@master
         with:
+          sa: ${{ secrets.TEST_JSON_KEY }}
           path: './cache'
           key: 'key-one'
           # restore-keys: |
