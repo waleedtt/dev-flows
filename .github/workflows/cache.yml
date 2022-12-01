@@ -7,7 +7,7 @@ jobs:
     name: Cache Job
     runs-on: ubuntu-latest
     env:
-      keyOfCache: test-key-2
+      keyOfCache: test-key-3
 
     steps:
 
