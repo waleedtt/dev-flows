@@ -1,6 +1,35 @@
 name: "My Course Job"
 on: [fork]
-# fork push
+# fork push pull_request
+# on: 
+#   push:
+#   pull_request:
+#    types: [closed, assigned, reopened]
+# on:
+#   schedule:
+#     - cron: "* * * * *"
+#     - cron: "*/5 * * * *"
+#   pull_request:
+#     types: [closed, assigned, reopened, opened]
+# on:
+#   workflow_dispatch:
+#    types: ["build"] # post a url, body {"event_type": "build", client_payload: {"env": "prod"}} # ${{ github.event.client_payload.env }}
+# on: 
+#   push:
+#    branches:
+#     - master
+#     - 'feature/*'
+#     - 'feature/**'
+#     - '!feature/test' # does not include this one
+#    branches-ignore:
+#     - master
+#    tags:
+#     - v1.*
+#    paths:
+#     - '**.js'
+#     - '!**.js' # does not include this one
+#    paths-ignore:
+#     - '**.js'
 
 jobs:
   my-course-job:
