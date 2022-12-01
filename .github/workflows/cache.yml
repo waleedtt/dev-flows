@@ -7,7 +7,7 @@ jobs:
     name: Cache Job
     runs-on: ubuntu-latest
     env:
-      keyOfCache: test-key-1
+      keyOfCache: test-
 
     steps:
 
@@ -20,9 +20,10 @@ jobs:
           #  ./node_modules
           key: ${{ env.keyOfCache }}
           # key: ${{ runner.os }}-node-${{ hashFiles('./mywork.txt') }}
-          # restore-keys: | 
-          #   test-
-          # #  test-
+          restore-keys: | 
+            test-key-1
+          #  test-
+          #  test-
 
       - name: ls -la
         run: ls -la 
