@@ -6,8 +6,8 @@ on: [push]
 jobs:
 
   command:
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo 'fine'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'fine'
 
     
