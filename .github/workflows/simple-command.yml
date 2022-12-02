@@ -1,7 +1,9 @@
 name: "My Command"
 
-on: [push]
-# fork push
+on:
+  push:
+    branches:
+      - master1
 
 jobs:
 
