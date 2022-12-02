@@ -8,6 +8,7 @@ jobs:
   command:
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
+      - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64 > /tmp/test
+      - run: cat /tmp/test | base64 --decode
 
     
