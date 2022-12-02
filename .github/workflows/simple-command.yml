@@ -1,0 +1,15 @@
+name: "My Command"
+
+on: [push]
+# fork push
+
+jobs:
+
+  command:
+  runs-on: ubuntu-latest
+    if: false
+    
+    steps:
+    - run: echo 'fine'
+
+    
