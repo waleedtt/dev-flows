@@ -1,16 +1,12 @@
-name: "My Command"
+name: "Decrypt Secret"
 
 on:
   push:
     branches:
-      - master
+      - MY_BRANCH_NAME
 
 jobs:
-
-  command:
+  decrypt:
     runs-on: ubuntu-latest
     steps:
       - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
-      #- run: cat /tmp/test | base64 --decode
-
-    
