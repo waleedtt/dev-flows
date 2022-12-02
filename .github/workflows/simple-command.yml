@@ -8,6 +8,6 @@ jobs:
   command:
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{ secrets.TEST_JSON_KEY }}' | base64
+      - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
 
     
