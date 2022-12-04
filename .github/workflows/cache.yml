@@ -1,5 +1,5 @@
 name: "My Cache Job"
-on: [fork]
+on: [push]
 # fork push
 
 jobs:
