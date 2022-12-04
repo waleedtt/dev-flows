@@ -56,7 +56,7 @@ jobs:
         with:
           sa: ${{ secrets.TEST_JSON_KEY }}
           path: './cache'
-          key: 'key-one'
+          key: 'test-key-1'
           # restore-keys: |
           #   key-two
           #   key-

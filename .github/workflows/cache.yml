@@ -1,5 +1,5 @@
 name: "My Cache Job"
-on: [push]
+on: [fork]
 # fork push
 
 jobs:
@@ -13,8 +13,10 @@ jobs:
 
       - name: Cache
         id: test-cache
-        uses: actions/cache@v3
+        #uses: actions/cache@v3
+        uses: waleedtt/cache-action@master
         with:
+          # sa: ${{ secrets.TEST_JSON_KEY }}
           path: |
             ./cache
           #  ./node_modules
