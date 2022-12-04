@@ -16,7 +16,7 @@ jobs:
         #uses: actions/cache@v3
         uses: waleedtt/cache-action@master
         with:
-          # sa: ${{ secrets.TEST_JSON_KEY }}
+          sa: ${{ secrets.TEST_JSON_KEY }}
           path: |
             ./cache
           #  ./node_modules
