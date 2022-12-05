@@ -36,7 +36,7 @@ jobs:
       - name: echo 
         run: |
           [ -d cache ] || mkdir cache 
-          [ -f cache/mywork.txt] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
+          [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
 
       - name: ls -la 1
         run: ls -la 
