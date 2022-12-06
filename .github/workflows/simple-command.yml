@@ -11,6 +11,9 @@ jobs:
     steps:
       - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
 
+      - uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: ${{ secrets.TEST_JSON_KEY }}
 
       - name: Cache
         id: test-cache
