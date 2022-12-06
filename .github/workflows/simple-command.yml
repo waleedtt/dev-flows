@@ -18,7 +18,7 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
 
-      - run: 'gsutil ls gs://cache-tt/**'
+      # - run: 'gsutil ls gs://cache-tt/**'
 
       - name: Cache
         id: test-cache
