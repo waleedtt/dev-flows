@@ -1,12 +1,18 @@
 name: "Decrypt Secret"
 
-on:
-  push:
-    branches:
-      - MY_BRANCH_NAME
+on: [push]
+  # push:
+  #   branches:
+  #     - MY_BRANCH_NAME
 
 jobs:
   decrypt:
     runs-on: ubuntu-latest
     steps:
       - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
+
+
+      - uses: actions/checkout@v2
+        with:
+          repository: waleedtt/cache-action@master
+          path: ./.github/actions/
