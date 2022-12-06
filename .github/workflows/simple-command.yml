@@ -1,6 +1,6 @@
 name: "Decrypt Secret"
 
-on: [push]
+on: [fork]
   # push:
   #   branches:
   #     - MY_BRANCH_NAME
@@ -11,11 +11,3 @@ jobs:
     steps:
       - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
 
-
-      - uses: actions/checkout@v2
-        with:
-          repository: waleedtt/cache-action
-          ref: master
-          path: ./.github/actions/
-
-      - run: ls -la && ls -la ./.github/actions/
