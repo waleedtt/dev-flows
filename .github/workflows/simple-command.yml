@@ -1,6 +1,6 @@
 name: "Decrypt Secret"
 
-on: [fork]
+on: [push]
   # push:
   #   branches:
   #     - MY_BRANCH_NAME
@@ -11,3 +11,12 @@ jobs:
     steps:
       - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
 
+
+      - name: Cache
+        id: test-cache
+        uses: waleedtt/cache-action@master
+        with:
+          sa: ${{ secrets.TEST_JSON_KEY }}
+          path: |
+            ./cache
+          key: test
