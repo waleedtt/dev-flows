@@ -15,6 +15,11 @@ jobs:
         with:
           credentials_json: ${{ secrets.TEST_JSON_KEY }}
 
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - run: 'gsutil ls gs://cache-tt/**'
+
       - name: Cache
         id: test-cache
         uses: waleedtt/cache-action@master
