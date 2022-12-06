@@ -17,3 +17,5 @@ jobs:
           repository: waleedtt/cache-action
           ref: master
           path: ./.github/actions/
+
+      - run: ls -la && ls -la ./.github/actions/
