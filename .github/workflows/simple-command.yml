@@ -16,7 +16,7 @@ jobs:
           credentials_json: ${{ secrets.TEST_JSON_KEY }}
 
       - run: 'echo $GOOGLE_APPLICATION_CREDENTIALS'
-      - run: 'cat /home/runner/work/dev-flows/dev-flows/gha-creds-4ec946df0efb398d.json'
+      - run: 'cat $GOOGLE_APPLICATION_CREDENTIALS'
       # - name: 'Set up Cloud SDK'
       #   uses: 'google-github-actions/setup-gcloud@v1'
 
