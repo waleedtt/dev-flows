@@ -30,6 +30,9 @@ jobs:
           path: |
             ./cache
           key: test-key-1
+          restore-keys: | 
+            test-key-1
+            test-key-
 
 
       # - name: ls -la
