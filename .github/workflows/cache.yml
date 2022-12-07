@@ -60,6 +60,11 @@ jobs:
       - name: ls -la 1
         run: ls -la && ls -lh cache/
 
+      - run: 'rm cache/100MB.bin'
+
+      - name: ls -la 1
+        run: ls -la && ls -lh cache/
+
       - name: cat1
         run: cat ./cache/mywork.txt
 
