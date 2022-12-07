@@ -55,10 +55,10 @@ jobs:
           [ -d cache ] || mkdir cache 
           [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
 
-      - run: 'wget -P cache/ https://speed.hetzner.de/100MB.bin'
+      #- run: 'wget -P cache/ https://speed.hetzner.de/100MB.bin'
 
       - name: ls -la 1
-        run: ls -la && ls -la cache/
+        run: ls -la && ls -lh cache/
 
       - name: cat1
         run: cat ./cache/mywork.txt
