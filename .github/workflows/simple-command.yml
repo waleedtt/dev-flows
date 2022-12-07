@@ -27,23 +27,23 @@ jobs:
           sa: ${{ secrets.TEST_JSON_KEY }}
           path: |
             ./cache
-          key: test
+          key: test-key-1
 
 
-      - name: ls -la
-        run: ls -la 
+      # - name: ls -la
+      #   run: ls -la 
 
-      - name: cat
-        run: |
-          cat ./cache/mywork.txt || true
+      # - name: cat
+      #   run: |
+      #     cat ./cache/mywork.txt || true
 
-      - name: echo 
-        run: |
-          [ -d cache ] || mkdir cache 
-          [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
+      # - name: echo 
+      #   run: |
+      #     [ -d cache ] || mkdir cache 
+      #     [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
 
-      - name: ls -la 1
-        run: ls -la 
+      # - name: ls -la 1
+      #   run: ls -la 
 
-      - name: cat1
-        run: cat ./cache/mywork.txt
+      # - name: cat1
+      #   run: cat ./cache/mywork.txt
