@@ -1,6 +1,8 @@
 name: "Decrypt Secret"
 
-on: [push]
+#on: [push]
+on:
+  pull_request:
   # push:
   #   branches:
   #     - MY_BRANCH_NAME
