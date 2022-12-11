@@ -9,7 +9,7 @@ jobs:
   decrypt:
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
+      #- run: echo '${{ secrets.MY_SAME_AS_KEY }}' | base64
 
       - uses: 'google-github-actions/auth@v1'
         with:
