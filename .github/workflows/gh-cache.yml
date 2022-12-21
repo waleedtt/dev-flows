@@ -42,8 +42,12 @@ jobs:
       # - name: cat1
       #   run: cat ./cache/mywork.txt
 
+      - run: ls -la
+
       - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - run: yarn install --frozen-lockfile
 
+      - run: ls -la
+      
       - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
