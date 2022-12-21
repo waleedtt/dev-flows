@@ -1,0 +1,44 @@
+name: "My Cache Job"
+on: [push]
+# fork push
+
+jobs:
+  my-gh-cache-job:
+    name: GH Cache Job
+    runs-on: ubuntu-latest
+    env:
+      keyOfCache: test-key-1
+
+    steps:
+      - name: Cache
+        id: test-cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./cache
+          #  ./node_modules
+          key: ${{ env.keyOfCache }}
+
+      - name: ls -la
+        run: ls -la 
+
+      - name: cat
+        run: |
+          cat ./cache/mywork.txt || true
+
+      - name: echo 
+        run: |
+          [ -d cache ] || mkdir cache 
+          [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
+
+
+      - name: ls -la 1
+        run: ls -la && ls -lh cache/
+
+
+      - name: ls -la 1
+        run: ls -la && ls -lh cache/
+
+      - name: cat1
+        run: cat ./cache/mywork.txt
+
