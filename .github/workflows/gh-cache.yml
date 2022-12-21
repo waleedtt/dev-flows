@@ -42,6 +42,9 @@ jobs:
       # - name: cat1
       #   run: cat ./cache/mywork.txt
 
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - run: ls -la
 
       - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -49,5 +52,5 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - run: ls -la
-      
+
       - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
