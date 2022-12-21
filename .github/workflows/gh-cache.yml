@@ -42,15 +42,60 @@ jobs:
       # - name: cat1
       #   run: cat ./cache/mywork.txt
 
-      - name: Checkout
-        uses: actions/checkout@v2
+
+
+
+
+
+
+
+      # - name: Checkout
+      #   uses: actions/checkout@v2
         
-      - run: ls -la
+      # - run: ls -la
 
-      - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      # - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install --frozen-lockfile
+      # - run: yarn install --frozen-lockfile
 
-      - run: ls -la
+      # - run: ls -la
 
-      - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      # - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+
+
+
+
+
+
+      - name: Cache Action
+        id: id_cache
+        uses: waleedtt/cache-action@master
+        with:
+          sa: ${{ secrets.TEST_JSON_KEY }}
+          path: './cache'
+          key: 'test-key-1'
+
+
+      - name: ls -la
+        run: ls -la 
+
+      - name: cat
+        run: |
+          cat ./cache/mywork.txt || true
+
+      - name: echo 
+        run: |
+          [ -d cache ] || mkdir cache 
+          [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
+
+
+      - name: ls -la 1
+        run: ls -la && ls -lh cache/
+
+
+      - name: ls -la 1
+        run: ls -la && ls -lh cache/
+
+      - name: cat1
+        run: cat ./cache/mywork.txt
