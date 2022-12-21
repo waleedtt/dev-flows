@@ -10,35 +10,40 @@ jobs:
       keyOfCache: test-key-1
 
     steps:
-      - name: Cache
-        id: test-cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ./cache
-          #  ./node_modules
-          key: ${{ env.keyOfCache }}
+      # - name: Cache
+      #   id: test-cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       ./cache
+      #     #  ./node_modules
+      #     key: ${{ env.keyOfCache }}
 
-      - name: ls -la
-        run: ls -la 
+      # - name: ls -la
+      #   run: ls -la 
 
-      - name: cat
-        run: |
-          cat ./cache/mywork.txt || true
+      # - name: cat
+      #   run: |
+      #     cat ./cache/mywork.txt || true
 
-      - name: echo 
-        run: |
-          [ -d cache ] || mkdir cache 
-          [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
-
-
-      - name: ls -la 1
-        run: ls -la && ls -lh cache/
+      # - name: echo 
+      #   run: |
+      #     [ -d cache ] || mkdir cache 
+      #     [ -f cache/mywork.txt ] || echo ${{ env.keyOfCache }} > ./cache/mywork.txt
 
 
-      - name: ls -la 1
-        run: ls -la && ls -lh cache/
+      # - name: ls -la 1
+      #   run: ls -la && ls -lh cache/
 
-      - name: cat1
-        run: cat ./cache/mywork.txt
 
+      # - name: ls -la 1
+      #   run: ls -la && ls -lh cache/
+
+      # - name: cat1
+      #   run: cat ./cache/mywork.txt
+
+      - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - run: yarn install --frozen-lockfile
+
+      - run: echo ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
