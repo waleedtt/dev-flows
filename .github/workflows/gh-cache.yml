@@ -102,4 +102,4 @@ jobs:
 
 
       - name: ls -la 1
-        run: ls -la && pwd && ls -la ~
+        run: ls -la && pwd && ls -la ~/work/dev-flows/dev-flows
