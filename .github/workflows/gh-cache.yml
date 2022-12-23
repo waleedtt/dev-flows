@@ -18,6 +18,12 @@ jobs:
             ~/work/dev-flows/dev-flows/cache
           #  ./node_modules
           key: ${{ env.keyOfCache }}
+          restore-keys: | 
+            test-key-
+            test-key-4
+
+      - name: get hit
+        run: echo "${{ steps.test-cache.outputs.cache-hit }}"
 
       - name: ls -la
         run: ls -la 
