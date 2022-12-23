@@ -7,7 +7,7 @@ jobs:
     name: GH Cache Job
     runs-on: ubuntu-latest
     env:
-      keyOfCache: test-key-2
+      keyOfCache: test-key-1
 
     steps:
       - name: Cache
