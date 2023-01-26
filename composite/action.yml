@@ -5,6 +5,10 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  key: 
+    description: 'Key'
+    required: false
+    default: ''
 outputs:
   random-number:
     description: "Random number"
@@ -25,5 +29,5 @@ runs:
       with:
         repository: waleedahmeddev/ghprb
         #ref: master
-        token: ${{ secrets.DEV_ACC_PAT }}
+        token: ${{ inputs.key }}
         path: ./test/
