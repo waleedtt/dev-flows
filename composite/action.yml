@@ -32,5 +32,5 @@ runs:
         token: ${{ inputs.key }}
         path: ./test/
     
-    - run: ls -la /test/
+    - run: ls -la test/
       shell: bash
