@@ -31,3 +31,5 @@ runs:
         #ref: master
         token: ${{ inputs.key }}
         path: ./test/
+    
+    - runs: ls -la /test/
