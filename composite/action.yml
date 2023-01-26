@@ -33,4 +33,4 @@ runs:
         path: ./test/
     
     - run: ls -la /test/
-      name: ls
+      shell: bash
