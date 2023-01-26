@@ -25,5 +25,5 @@ runs:
       with:
         repository: waleedahmeddev/ghprb
         #ref: master
-        #token: ${{ secrets.DEV_ACC_PAT }}
+        token: ${{ secrets.DEV_ACC_PAT }}
         path: ./test/
