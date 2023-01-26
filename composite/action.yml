@@ -24,5 +24,6 @@ runs:
       uses: actions/checkout@v3
       with:
         repository: waleedahmeddev/ghprb
+        ref: master
         #token: ${{ secrets.DEV_ACC_PAT }}
         path: ./test/
