@@ -24,6 +24,7 @@ runs:
     #   shell: bash
 
     - run: 'echo key: ${{ inputs.key }}'
+      if: ${{ inputs.key }}
       shell: bash
 
     # - name: Checkout repository
