@@ -27,6 +27,10 @@ runs:
       if: ${{ inputs.key && contains(runner.name, 'Agent') }}
       shell: bash
 
+    - run: 'echo not key: ${{ inputs.key }} ${{ runner.name }}'
+      if: ${{ !contains(runner.name, 'Agent') || inputs.key }}
+      shell: bash
+
     # - name: Checkout repository
     #   uses: actions/checkout@v3
     #   with:
