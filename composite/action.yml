@@ -28,7 +28,7 @@ runs:
       shell: bash
 
     - run: 'echo not key: ${{ inputs.key }} ${{ runner.name }}'
-      if: ${{ !contains(runner.name, 'Agent') || inputs.key }}
+      if: ${{ !contains(runner.name, 'Agent') || !inputs.key }}
       shell: bash
 
     # - name: Checkout repository
