@@ -24,7 +24,7 @@ runs:
     #   shell: bash
 
     - run: 'echo key: ${{ inputs.key }}'
-      if: ${{ inputs.key && contains(runner.name, 'inf-gha-runners-ci') }}
+      if: ${{ inputs.key && contains(runner.name, 'Agent') }}
       shell: bash
 
     # - name: Checkout repository
