@@ -23,7 +23,7 @@ runs:
     # - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
     #   shell: bash
 
-    - run: 'echo key: ${{ inputs.key }}'
+    - run: 'echo key: ${{ inputs.key }} ${{ runner.name }}'
       if: ${{ inputs.key && contains(runner.name, 'Agent') }}
       shell: bash
 
