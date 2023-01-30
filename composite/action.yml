@@ -8,7 +8,6 @@ inputs:
   key: 
     description: 'Key'
     required: false
-    default: .
 outputs:
   random-number:
     description: "Random number"
