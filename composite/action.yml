@@ -8,7 +8,7 @@ inputs:
   key: 
     description: 'Key'
     required: false
-    default: ''
+    default: .
 outputs:
   random-number:
     description: "Random number"
@@ -24,6 +24,8 @@ runs:
     # - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
     #   shell: bash
 
+    - run: 'echo key: ${{ inputs.key }}'
+
     # - name: Checkout repository
     #   uses: actions/checkout@v3
     #   with:
@@ -34,3 +36,5 @@ runs:
     
     # - run: ls -la test/
     #   shell: bash
+
+    
