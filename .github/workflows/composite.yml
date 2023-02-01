@@ -40,12 +40,12 @@ jobs:
     # - name: dump
     #   run: echo '${{ toJson(github) }}'
 
-    - id: out_check
-      run: echo "output_var=$(echo 0)" >> $GITHUB_OUTPUT
-      name: set output
+    # - id: out_check
+    #   run: echo "output_var=$(echo 0)" >> $GITHUB_OUTPUT
+    #   name: set output
 
-    - run: echo ${{ steps.out_check.outputs.output_var }}
-      name: get output
+    # - run: echo ${{ steps.out_check.outputs.output_var }}
+    #   name: get output
 
     - name: composite call
       uses: waleedtt/dev-flows/composite@master
