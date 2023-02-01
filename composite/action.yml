@@ -12,7 +12,7 @@ outputs:
   output_one:
     description: "output_one"
     #value: ${{ steps.output_one.outputs.output_cond  }}
-    value: ${{ steps.output_cond.outputs.output_varr || steps.output_cond1.outputs.output_varr }}
+    value: ${{ steps.output_cond.outputs.output_var || steps.output_cond1.outputs.output_var }}
 runs:
   using: "composite"
   steps:
