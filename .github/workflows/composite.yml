@@ -1,0 +1,77 @@
+name: "My Token Job"
+
+on: [push]
+
+jobs:
+  do_this:
+    name: token
+    runs-on: ubuntu-latest
+    env:
+      test1: test1
+      uses: 'waleedtt/dev-flows/composite@master'
+    
+    steps:
+    # - name: Checkout repository
+    #   uses: actions/checkout@v3
+
+    # - name: test
+    #   run: |
+    #     echo test
+
+    # - name: test1
+    #   uses: waleedtt/dev-flows/composite@master
+    #   id: test1
+    #   with:
+    #     who-to-greet: "John"
+    #     key: asd #${{ secrets.DEV_ACC_PAT }}
+
+    # - name: test2
+    #   run: |
+    #     echo ${{ steps.test1.outputs.random-number }}
+    #     echo $GITHUB_PATH
+
+
+    # - uses: waleedtt/checkout/.github/workflows/resuable.yml
+    #   with:
+    #     inp1: "test"
+
+
+    # - name: dump
+    #   run: echo '${{ toJson(github) }}'
+
+
+    - name: composite call
+      uses: waleedtt/dev-flows/composite@master
+      id: composite_one
+      with:
+        input_one: "John"
+        key: asd 
+
+    - name: output
+      run: 'echo output: ${{ steps.composite_one.outputs.output_one }}'
+
+    # - name: runner.name
+    #   run: |
+    #     echo ${{ runner.name }}
+
+    # - uses: DamianReeves/write-file-action@master
+    #   with:
+    #     path: runnerFile.txt
+    #     contents: |
+    #       ${{ toJSON(runner) }}
+
+    - name: id check
+      id: test
+      run: echo test
+
+    - name: id check 1
+      id: test1
+      run: 'echo runner.name : ${{ runner.name }}'
+  
+    - name: contains
+      if: ${{ contains(runner.name, 'inf-gha-runners-ci') }}
+      run: echo contains inf-gha-runners-ci
+
+    - name: not contains
+      if: ${{ !contains(runner.name, 'inf-gha-runners-ci') }}
+      run: echo not contains inf-gha-runners-ci
