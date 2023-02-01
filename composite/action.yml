@@ -12,6 +12,9 @@ outputs:
   output_one:
     description: "output_one"
     value: ${{ steps.output_one.outputs.output_var }}
+  output_one:
+    description: "output_one"
+    value: ${{ steps.output_one.outputs.output_var }}
 runs:
   using: "composite"
   steps:
