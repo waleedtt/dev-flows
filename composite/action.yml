@@ -32,10 +32,12 @@ runs:
 
     - run: 'echo key: ${{ inputs.key }} ${{ runner.name }}'
       if: ${{ inputs.key && contains(runner.name, 'inf-gha-runners-ci') }}
+      id: output_one
       shell: bash
 
     - run: 'echo not key: ${{ inputs.key }} ${{ runner.name }}'
       if: ${{ !contains(runner.name, 'inf-gha-runners-ci') || !inputs.key }}
+      id: output_one
       shell: bash
 
     # - name: Checkout repository
