@@ -11,7 +11,7 @@ inputs:
 outputs:
   output_one:
     description: "output_one"
-    value: ${{ steps.output_one.outputs.output_one }}
+    value: ${{ steps.output_one.outputs.output_var }}
 runs:
   using: "composite"
   steps:
@@ -20,7 +20,7 @@ runs:
       shell: bash
 
     - id: output_one
-      run: echo "output_one=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+      run: echo "output_var=$(echo $RANDOM)" >> $GITHUB_OUTPUT
       shell: bash
       
     # - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
