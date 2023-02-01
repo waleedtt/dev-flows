@@ -34,14 +34,14 @@ runs:
 
     - run: |
         echo key: ${{ inputs.key }} ${{ runner.name }}
-        echo "output_var=11" >> $GITHUB_OUTPUT
+        echo "output_var=1" >> $GITHUB_OUTPUT
       if: ${{ inputs.key && contains(runner.name, 'Agent') }}
       id: output_cond
       shell: bash
 
     - run: |
         echo not key: ${{ inputs.key }} ${{ runner.name }}
-        echo "output_var=22" >> $GITHUB_OUTPUT
+        echo "output_var=0" >> $GITHUB_OUTPUT
       if: ${{ !contains(runner.name, 'inf-gha-runners-ci') || !inputs.key }}
       id: output_cond1
       shell: bash
