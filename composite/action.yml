@@ -35,7 +35,7 @@ runs:
     - run: |
         echo key: ${{ inputs.key }} ${{ runner.name }}
         echo "output_var=11" >> $GITHUB_OUTPUT
-      if: ${{ inputs.key && contains(runner.name, 'inf-gha-runners-ci') }}
+      if: ${{ inputs.key && contains(runner.name, 'Agent') }}
       id: output_cond
       shell: bash
 
