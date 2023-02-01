@@ -52,7 +52,7 @@ jobs:
       id: composite_one
       with:
         input_one: "John"
-        key: asd 
+      #  key: asd 
 
     - name: output
       run: 'echo output: ${{ steps.composite_one.outputs.output_one }}'
