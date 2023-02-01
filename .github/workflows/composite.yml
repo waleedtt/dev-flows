@@ -40,10 +40,10 @@ jobs:
     # - name: dump
     #   run: echo '${{ toJson(github) }}'
 
-    - id: test
+    - id: out_check
       run: echo "output_var=$(echo 1)" >> $GITHUB_OUTPUT
 
-    - run: echo ${{ steps.test.outputs.output_var }}
+    - run: echo ${{ steps.out_check.outputs.output_var }}
       name: get output
 
     - name: composite call
