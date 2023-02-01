@@ -20,6 +20,7 @@ runs:
       shell: bash
 
     - id: output_one
+      if: false
       run: echo "output_var=$(echo $RANDOM)" >> $GITHUB_OUTPUT
       shell: bash
 
@@ -37,7 +38,7 @@ runs:
 
     - run: 'echo not key: ${{ inputs.key }} ${{ runner.name }}'
       if: ${{ !contains(runner.name, 'inf-gha-runners-ci') || !inputs.key }}
-      id: output_cond
+      id: output_cond1
       shell: bash
 
     # - name: Checkout repository
