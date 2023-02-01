@@ -11,32 +11,34 @@ inputs:
 outputs:
   output_one:
     description: "output_one"
-    value: ${{ steps.output_one.outputs.output_var }}
+    value: ${{ steps.output_one.outputs.output_cond || steps.output_one.outputs.output_cond1 }}
 runs:
   using: "composite"
   steps:
 
-    - run: 'echo input_one : ${{ inputs.input_one }}'
-      shell: bash
+    # - run: 'echo input_one : ${{ inputs.input_one }}'
+    #   shell: bash
 
-    - id: output_one
-      if: false
-      run: echo "output_var=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-      shell: bash
+    # - id: output_one
+    #   if: false
+    #   run: echo "output_var=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+    #   shell: bash
 
-    - id: output_two
-      run: echo "output_var=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-      shell: bash
+    # - id: output_two
+    #   run: echo "output_var=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+    #   shell: bash
       
     # - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
     #   shell: bash
 
-    - run: 'echo key: ${{ inputs.key }} ${{ runner.name }}'
+    - run: |
+        echo key: ${{ inputs.key }} ${{ runner.name }}
       if: ${{ inputs.key && contains(runner.name, 'inf-gha-runners-ci') }}
       id: output_cond
       shell: bash
 
-    - run: 'echo not key: ${{ inputs.key }} ${{ runner.name }}'
+    - run: |
+        echo not key: ${{ inputs.key }} ${{ runner.name }}
       if: ${{ !contains(runner.name, 'inf-gha-runners-ci') || !inputs.key }}
       id: output_cond1
       shell: bash
