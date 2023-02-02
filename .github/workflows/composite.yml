@@ -84,7 +84,7 @@ jobs:
     #   run: echo not contains inf-gha-runners-ci
 
 
-    - run: echo "output_varr=0" >> $GITHUB_OUTPUT
+    - run: echo "output_var=0" >> $GITHUB_OUTPUT
       id: out1
 
     - run: echo "output_varr=1" >> $GITHUB_OUTPUT
