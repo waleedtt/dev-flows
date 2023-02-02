@@ -47,38 +47,48 @@ jobs:
     # - run: echo ${{ steps.out_check.outputs.output_var }}
     #   name: get output
 
-    - name: composite call
-      uses: waleedtt/dev-flows/composite@master
-      id: composite_one
-      with:
-        input_one: "John"
-        key: asd 
-
-    - name: output
-      run: 'echo output: ${{ steps.composite_one.outputs.output_one }}'
-
-    # - name: runner.name
-    #   run: |
-    #     echo ${{ runner.name }}
-
-    # - uses: DamianReeves/write-file-action@master
+    # - name: composite call
+    #   uses: waleedtt/dev-flows/composite@master
+    #   id: composite_one
     #   with:
-    #     path: runnerFile.txt
-    #     contents: |
-    #       ${{ toJSON(runner) }}
+    #     input_one: "John"
+    #     key: asd 
 
-    - name: id check
-      id: test
-      run: echo test
+    # - name: output
+    #   run: 'echo output: ${{ steps.composite_one.outputs.output_one }}'
 
-    - name: id check 1
-      id: test1
-      run: 'echo runner.name : ${{ runner.name }}'
+    # # - name: runner.name
+    # #   run: |
+    # #     echo ${{ runner.name }}
+
+    # # - uses: DamianReeves/write-file-action@master
+    # #   with:
+    # #     path: runnerFile.txt
+    # #     contents: |
+    # #       ${{ toJSON(runner) }}
+
+    # - name: id check
+    #   id: test
+    #   run: echo test
+
+    # - name: id check 1
+    #   id: test1
+    #   run: 'echo runner.name : ${{ runner.name }}'
   
-    - name: contains
-      if: ${{ contains(runner.name, 'inf-gha-runners-ci') }}
-      run: echo contains inf-gha-runners-ci
+    # - name: contains
+    #   if: ${{ contains(runner.name, 'inf-gha-runners-ci') }}
+    #   run: echo contains inf-gha-runners-ci
 
-    - name: not contains
-      if: ${{ !contains(runner.name, 'inf-gha-runners-ci') }}
-      run: echo not contains inf-gha-runners-ci
+    # - name: not contains
+    #   if: ${{ !contains(runner.name, 'inf-gha-runners-ci') }}
+    #   run: echo not contains inf-gha-runners-ci
+
+
+    - run: echo "output_var=0" >> $GITHUB_OUTPUT
+      id: out1
+
+    - run: echo "output_var=1" >> $GITHUB_OUTPUT
+      id: out2
+
+    - run: echo ok
+      if: ${{ steps.output_cond.outputs.output_var || steps.output_cond1.outputs.output_var }}
