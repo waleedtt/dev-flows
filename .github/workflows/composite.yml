@@ -87,7 +87,7 @@ jobs:
     - run: echo "output_varr=false" >> $GITHUB_OUTPUT
       id: out1
 
-    - run: echo "output_var=true" >> $GITHUB_OUTPUT
+    - run: echo "output_varr=true" >> $GITHUB_OUTPUT
       id: out2
 
     - run: echo out ${{  steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
