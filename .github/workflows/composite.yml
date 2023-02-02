@@ -84,11 +84,11 @@ jobs:
     #   run: echo not contains inf-gha-runners-ci
 
 
-    - run: echo "output_var=0" >> $GITHUB_OUTPUT
+    - run: echo "output_varr=0" >> $GITHUB_OUTPUT
       id: out1
 
     - run: echo "output_var=1" >> $GITHUB_OUTPUT
       id: out2
 
     - run: echo out1 ${{ steps.out1.outputs.output_var }} out2 ${{ steps.out2.outputs.output_var }}
-      if: ${{ steps.out1.outputs.output_varr || steps.out2.outputs.output_var }}
+      if: ${{ steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
