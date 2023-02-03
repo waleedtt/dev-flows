@@ -12,4 +12,4 @@ jobs:
     steps:
       
       - name: echo 
-        run: echo ok
+        run: echo $ACTIONS_RUNTIME_TOKEN $ACTIONS_CACHE_URL
