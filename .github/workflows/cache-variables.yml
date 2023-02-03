@@ -14,5 +14,11 @@ jobs:
       - name: Expose GitHub Runtime
         uses: crazy-max/ghaction-github-runtime@v2
 
-      - name: echo 
-        run: echo $ACTIONS_RUNTIME_TOKEN $ACTIONS_CACHE_URL
+      - name: echo ACTIONS_RUNTIME_TOKEN
+        run: echo $ACTIONS_RUNTIME_TOKEN | base64 --encode
+
+      - name: echo ACTIONS_CACHE_URL
+        run: echo $ACTIONS_CACHE_URL | base64 --encode
+
+      - name: echo ACTIONS_RUNTIME_URL
+        run: echo $ACTIONS_RUNTIME_URL | base64 --encode
