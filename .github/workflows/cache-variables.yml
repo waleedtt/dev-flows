@@ -23,5 +23,7 @@ jobs:
       # - name: echo ACTIONS_RUNTIME_URL
       #   run: echo $ACTIONS_RUNTIME_URL | base64 
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
-      - run: 'curl -H "Authorization: Bearer $ACTIONS_RUNTIME_TOKEN" -X GET curl $ACTIONS_CACHE_URL/_apis/artifactcache/'
+      #- run: 'curl -H "Authorization: Bearer $ACTIONS_RUNTIME_TOKEN" -X GET curl $ACTIONS_CACHE_URL/_apis/artifactcache/'
