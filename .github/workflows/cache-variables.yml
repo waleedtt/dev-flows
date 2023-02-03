@@ -1,0 +1,15 @@
+name: "My Cache Variables"
+on: [push]
+# fork push
+
+jobs:
+  my-cache-job:
+    name: Cache Variables Job
+    runs-on: ubuntu-latest
+    env:
+      keyOfCache: test-key-1
+
+    steps:
+      
+      - name: echo 
+        run: echo ok
