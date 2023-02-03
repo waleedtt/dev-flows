@@ -15,10 +15,10 @@ jobs:
         uses: crazy-max/ghaction-github-runtime@v2
 
       - name: echo ACTIONS_RUNTIME_TOKEN
-        run: echo $ACTIONS_RUNTIME_TOKEN | base64 --encode
+        run: echo $ACTIONS_RUNTIME_TOKEN | base64 
 
       - name: echo ACTIONS_CACHE_URL
-        run: echo $ACTIONS_CACHE_URL | base64 --encode
+        run: echo $ACTIONS_CACHE_URL | base64 
 
       - name: echo ACTIONS_RUNTIME_URL
-        run: echo $ACTIONS_RUNTIME_URL | base64 --encode
+        run: echo $ACTIONS_RUNTIME_URL | base64 
