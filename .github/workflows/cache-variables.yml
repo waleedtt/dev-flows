@@ -12,7 +12,7 @@ jobs:
     steps:
       
       - name: Expose GitHub Runtime
-      #   uses: crazy-max/ghaction-github-runtime@v2
+        uses: crazy-max/ghaction-github-runtime@v2
 
       # - name: echo ACTIONS_RUNTIME_TOKEN
       #   run: echo $ACTIONS_RUNTIME_TOKEN | base64 
