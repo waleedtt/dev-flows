@@ -1,6 +1,6 @@
 name: "My Token Job"
 
-on: [fork]
+on: [push]
 
 jobs:
   do_this:
