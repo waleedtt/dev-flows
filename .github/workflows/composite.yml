@@ -96,5 +96,6 @@ jobs:
 
 
     - run: echo test
-      if: steps.out1.outputs.output_var && !contains(runner.name, 'Agentsss')
+      #if: steps.out1.outputs.output_var && contains(runner.name, 'Agent')
+      if: !contains(runner.name, 'Agentsss') || !inputs.checkout-token
       name: condtion check 1
