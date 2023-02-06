@@ -92,3 +92,4 @@ jobs:
 
     - run: echo out ${{  steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
       if: ${{ steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
+      name: condtion check
