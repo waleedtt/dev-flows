@@ -99,5 +99,5 @@ jobs:
       #if: steps.out1.outputs.output_var && contains(runner.name, 'Agent')
       #if: !contains(runner.name, 'inf-gha-runners-ci') || !inputs.checkout-token
       #if: "!steps.out1.outputs.output_var  || !contains(runner.name, 'Agent')"
-      if: "steps.out1.outputs.output_varr  && contains(runner.name, 'Agent')"
+      if: "steps.out1.outputs.output_var  && contains(runner.name, 'Agenst')"
       name: condtion check 1
