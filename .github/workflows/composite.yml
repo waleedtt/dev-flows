@@ -96,5 +96,5 @@ jobs:
 
 
     - run: echo test
-      if: ${{ steps.out1.outputs.output_var && contains(runner.name, 'Agent') }}
+      if: ${{ steps.out1.outputs.output_var && contains(runner.name, 'Agentsss') }}
       name: condtion check 1
