@@ -84,12 +84,17 @@ jobs:
     #   run: echo not contains inf-gha-runners-ci
 
 
-    - run: echo "output_varr=false" >> $GITHUB_OUTPUT
+    - run: echo "output_var=false" >> $GITHUB_OUTPUT
       id: out1
 
-    - run: echo "output_varr=true" >> $GITHUB_OUTPUT
-      id: out2
+    # - run: echo "output_var=true" >> $GITHUB_OUTPUT
+    #   id: out2
 
-    - run: echo out ${{  steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
-      if: ${{ steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
-      name: condtion check
+    # - run: echo out ${{  steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
+    #   if: ${{ steps.out1.outputs.output_var || steps.out2.outputs.output_var }}
+    #   name: condtion check
+
+
+    - run: echo test
+      if: ${{ steps.out1.outputs.output_var && contains(runner.name, 'Agent') }}
+      name: condtion check 1
